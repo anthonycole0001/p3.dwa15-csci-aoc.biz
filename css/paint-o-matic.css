@@ -117,6 +117,18 @@ input[class="item_paintNeeded_input"]{
     box-shadow:  1px 1px 30px #000000;
 }
 
+#description{
+    background-color: #f9f9f9;
+    margin-bottom: 15px;
+    font-family: "HelveticaNeueUltra";
+    font-size: 25px;
+    font-weight: bold;
+    padding: 20px;
+    text-align: center;
+    color: #181818;
+
+
+}
 
 
 /*----------------------------------------------------------------------------------------
