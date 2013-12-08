@@ -1,0 +1,69 @@
+/* 
+Accordion Style
+*/
+
+@font-face {
+  font-family: "HelveticaNeueUltra";
+  src: url("/fonts/HelveticaNeueUltraLight_0.ttf");
+  src: local("?"),
+    url("/fonts/HelveticaNeueUltraLight_0.woff") format("woff"),
+}
+
+
+#accordion h3{
+  font-family: "HelveticaNeueUltra";
+    font-size: 20px;
+}
+
+#accordion .new_item{
+    display: none;
+    font-size: 16px;
+    float: right;
+}
+
+#accordion #add_item{
+    display: inline;
+    float: right;
+    width: 25px;
+    height: 25px;
+    background-color: red;
+}
+
+#accordion .name{
+    width: 150px;
+}
+
+#accordion table{
+    width: 222px;
+    float: left;
+}
+
+#accordion table td{
+    width: 111px;
+}
+
+#accordion .header_row {
+  font-family: "HelveticaNeueUltra";
+    color: #707070;
+    font-size: 12px;
+    text-align: right;
+}
+
+
+#accordion .ui-accordion-header{
+   background: #ffffff;
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+    border-radius: 0px;
+    margin: 0px;
+}
+
+#accordion .ui-accordion-content{
+   background: #ffffff;
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+    border-radius: 0px;
+    margin: 0px;
+  font-family: "HelveticaNeueUltra";
+    font-size: 14px;
+}

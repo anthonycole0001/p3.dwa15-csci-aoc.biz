@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="description" content="P3.DWA15-CSCI-AOC-BIZ">
+    <meta name="author" content="Anthony Cole">
+
+    <title>Paint-o-Matic</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+
+    <script type="text/javascript" src="/js/jquery.dataTables.js"></script>
+
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/css/paint-o-matic.css" type="text/css">
+    <link rel="stylesheet" href="/css/accordion.css" type="text/css">
+
+    <link rel="stylesheet" href="http://oss.maxcdn.com/libs/jqueryui/1.10.3/css/base/jquery-ui.css" />
+
+    <link rel="stylesheet" href="/css/default.css" type="text/css">
+    <link rel="stylesheet" href="/css/component.css" type="text/css">
+  
+
+    <script src="/js/modernizr-2.7.0-custom.js"></script>
+    <script src="/js/classie.js"></script>
+
+
+    <!--[if lt IE 9]><script src="../../docs-assets/js/ie8-responsive-file-warning.js"></script>
+    <![endif]-->
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <div id="container">
+      <div id="top">
+        <div id="titlename">
+          Paint-o-Matic
+        </div>
+      </div>
+      <!--/ end top -->
+
+      <div id="left">
+        <div id="output"><div id="unit_liquidMeasurement"></div></div>
+        <div id="liquidunit">  
+          <button class="btn btn-1 btn-1a" id="liters">Liters</button>
+          <button class="btn btn-1 btn-1a" id="quart">Quarts</button>
+        </div>
+        <div id = "summary">
+          <p>Summary</p>
+          <table>
+            <tr>
+              <td class="category_title">Foyer:</td>     
+              <td><div id="foyer"></div></td>
+            </tr>
+            <tr>
+              <td class="category_title">Living Room:</td>     
+              <td><div id="living_room"></div></td>
+            </tr>
+            <tr>
+              <td class="category_title">Dining Room:</td>       
+              <td><div id="dining_room"></div></td>
+            </tr>
+            <tr>
+              <td class="category_title">Kitchen:</td>       
+              <td><div id="kitchen"></div></td>
+            </tr>
+            <tr>
+              <td class="category_title">Powder Room:</td>       
+              <td><div id="powder_room"></div></td>
+            </tr>
+            <tr>
+              <td class="category_title">Bedroom #1:</td>       
+              <td><div id="bedroom_1"></div></td>
+            </tr>
+            <tr>
+              <td class="category_title">Bedroom #2:</td>       
+              <td><div id="bedroom_2"></div></td>
+            </tr>
+            <tr>
+              <td class="category_title">Bedroom #3:</td>       
+              <td><div id="bedroom_3"></div></td>
+            </tr>
+            <tr>
+              <td class="category_title">Bedroom #4:</td>       
+              <td><div id="bedroom_4"></div></td>
+            </tr>
+            <tr>
+              <td class="category_title">Bathroom #1:</td>       
+              <td><div id="bathroom_1"></div></td>
+            </tr>
+            <tr>
+              <td class="category_title">Bathroom #2:</td>       
+              <td><div id="bathroom_2"></div></td>
+            </tr>
+            <tr>
+              <td class="category_title">Bathroom #3:</td>       
+              <td><div id="bathroom_3"></div></td>
+            </tr>
+            <tr>
+              <td class="category_title">Bathroom #4:</td>       
+              <td><div id="bethroom_4"></div></td>
+            </tr>
+            <tr>
+              <td class="category_title">Hallway #1:</td>       
+              <td><div id="hallway_1"></div></td>
+            </tr>
+            <tr>
+              <td class="category_title">Hallway #2:</td>       
+              <td><div id="hallway_2"></div></td>
+            </tr>
+            <tr>
+              <td class="category_title">Hallway #3:</td>       
+              <td><div id="hallway_3"></div></td>
+            </tr>
+            <tr>
+              <td class="category_title">Library:</td>       
+              <td><div id="library"></div></td>
+            </tr>
+            <tr>
+              <td class="category_title">Sunroom:</td>       
+              <td><div id="sunroom"></div></td>
+            </tr>
+            <tr>
+              <td class="category_title">Family Room:</td>       
+              <td><div id="family_room"></div></td>
+            </tr>
+          </table>
+        </div>  
+      </div>
+      <!-- /end selector  -->
+
+      <div id="right">
+        <div id="accordion">
+          <h3>Foyer </h3> 
+          <div id="foyer">
+            <table>
+              <tr class="title_row"><td>&nbsp;</td><td>Number:</td><td>Unit (gal.)</td></tr>
+              <tr><td class="name">Walls            </td>
+                <td><input type='text' class="number" size="15"></td>
+                <td><input type='text' class="calculate" size="15" id='walls'></td>
+              </tr>
+              <tr><td class="name">Baseboards            </td>
+                <td><input type='text' class="number" size="15"></td>
+                <td><input type='text' class="calculate" size="15" id='baseBoardsonWalls'></td>
+              </tr>
+              <tr><td class="name">Crown Moulding            </td>
+                <td><input type='text' class="number" size="15"></td>
+                <td><input type='text' class="calculate" size="15" id='crownMouldingsonWalls'></td>
+              </tr>
+              <tr><td class="name">Window Frame &amp; Sills            </td>
+                <td><input type='text' class="number" size="15"></td>
+                <td><input type='text' class="calculate" size="15" id='windowFrameSills'></td>
+              </tr>
+              <tr><td class="name">Columns            </td>
+                <td><input type='text' class="number" size="15"></td>
+                <td><input type='text' class="calculate" size="15" id='columns'></td></tr>
+            </table>
+          </div>
+          <h3>Living Room </h3> 
+          <div id="living_room">
+            <table>
+              <tr class="title_row"><td>&nbsp;</td><td>Number:</td><td>Unit (gal.):</td></tr>
+              <tr><td>Walls            </td>
+                <td><input type='text' class="number" size="15"></td>
+                <td><input type='text' class="calculate" size="15" id='walls'></td>
+              </tr>
+              <tr><td>Baseboards           </td>
+                <td><input type='text' class="number" size="15"></td>
+                <td><input type='text' class="calculate" size="15" id='baseBoardsonWalls'></td>
+              </tr>
+              <tr><td>Crown Moulding            </td>
+                <td><input type='text' class="number" size="15"></td>
+                <td><input type='text' class="calculate" size="15" id='crownMouldingsonWalls'></td>
+              </tr>
+              <tr><td>Window Frame &amp; Sills            </td>
+                <td><input type='text' class="number" size="15"></td>
+                <td><input type='text' class="calculate" size="15" id='windowFrameSills'></td>
+              </tr>
+              <tr><td>Fireplace Mantle            </td>
+                <td><input type='text' class="number" size="15"></td>
+                <td><input type='text' class="calculate" size="15" id='fireplaceMantles'></td>
+              </tr>
+              <tr><td>Columns            </td>
+                <td><input type='text' class="number" size="15"></td>
+                <td><input type='text' class="calculate" size="15" id='columns'></td>
+              </tr>
+
+            </table>
+          </div>
+          <h3>Dining Room </h3> 
+          <div id="dining_room">
+            <table>
+              <tr class="title_row"><td>&nbsp;</td><td>Number:</td><td>Unit (gal.):</td></tr>
+              <tr><td>Walls            </td>
+                <td><input type='text' class="number" size="15"></td>
+                <td><input type='text' class="calculate" size="15" id='walls'></td>
+              </tr>
+              <tr><td>Baseboards           </td>
+                <td><input type='text' class="number" size="15"></td>
+                <td><input type='text' class="calculate" size="15" id='baseBoardsonWalls'></td>
+              </tr>
+              <tr><td>Crown Moulding            </td>
+                <td><input type='text' class="number" size="15"></td>
+                <td><input type='text' class="calculate" size="15" id='crownMouldingsonWalls'></td>
+              </tr>
+              <tr><td>Window Frame &amp; Sills            </td>
+                <td><input type='text' class="number" size="15"></td>
+                <td><input type='text' class="calculate" size="15" id='windowFrameSills'></td>
+              </tr>
+              <tr><td>Fireplace Mantle            </td>
+                <td><input type='text' class="number" size="15"></td>
+                <td><input type='text' class="calculate" size="15" id='fireplaceMantles'></td>
+              </tr>
+            </table>
+          </div>
+          <h3>Kitchen </h3> 
+          <div id="kitchen">
+            <table>
+              <tr class="title_row"><td>&nbsp;</td><td>Number:</td><td>Unit (gal.):</td></tr>
+              <tr><td>Walls            </td>
+                <td><input type='text' class="number" size="15"></td>
+                <td><input type='text' class="calculate" size="15" id='walls'></td>
+              </tr>
+              <tr><td>Baseboards           </td>
+                <td><input type='text' class="number" size="15"></td>
+                <td><input type='text' class="calculate" size="15" id='baseBoardsonWalls'></td>
+              </tr>
+              <tr><td>Crown Moulding            </td>
+                <td><input type='text' class="number" size="15"></td>
+                <td><input type='text' class="calculate" size="15" id='crownMouldingsonWalls'></td>
+              </tr>
+              <tr><td>Window Frame &amp; Sills            </td>
+                <td><input type='text' class="number" size="15"></td>
+                <td><input type='text' class="calculate" size="15" id='windowFrameSills'></td>
+              </tr>
+              <tr><td>Pantry Walls           </td>
+                <td><input type='text' class="number" size="15"></td>
+                <td><input type='text' class="calculate" size="15" id='pantryWalls'></td>
+              </tr>
+            </table>
+          </div>
+          <h3>Powder Room </h3> 
+          <div id="powder_room">
+            <table>
+              <tr class="title_row"><td>&nbsp;</td><td>Number:</td><td>Unit (gal.):</td></tr>
+              <tr><td>Walls            </td>
+                <td><input type='text' class="number" size="15"></td>
+                <td><input type='text' class="calculate" size="15" id='walls'></td>
+              </tr>
+              <tr><td>Baseboards           </td>
+                <td><input type='text' class="number" size="15"></td>
+                <td><input type='text' class="calculate" size="15" id='baseBoardsonWalls'></td>
+              </tr>
+              <tr><td>Crown Moulding            </td>
+                <td><input type='text' class="number" size="15"></td>
+                <td><input type='text' class="calculate" size="15" id='crownMouldingsonWalls'></td>
+              </tr>
+              <tr><td>Window Frame &amp; Sills            </td>
+                <td><input type='text' class="number" size="15"></td>
+                <td><input type='text' class="calculate" size="15" id='windowFrameSills'></td>
+              </tr>
+            </table>
+          </div>
+          <h3>Bedroom #1 </h3> 
+          <div id="bedroom_1">
+            <table>
+              <tr class="title_row"><td>&nbsp;</td><td>Number:</td><td>Unit (gal.):</td></tr>
+              <tr><td>Walls            </td>
+                <td><input type='text' class="number" size="15"></td>
+                <td><input type='text' class="calculate" size="15" id='walls'></td>
+              </tr>
+              <tr><td>Baseboards           </td>
+                <td><input type='text' class="number" size="15"></td>
+                <td><input type='text' class="calculate" size="15" id='baseBoardsonWalls'></td>
+              </tr>
+              <tr><td>Crown Moulding            </td>
+                <td><input type='text' class="number" size="15"></td>
+                <td><input type='text' class="calculate" size="15" id='crownMouldingsonWalls'></td>
+              </tr>
+              <tr><td>Window Frame &amp; Sills            </td>
+                <td><input type='text' class="number" size="15"></td>
+                <td><input type='text' class="calculate" size="15" id='windowFrameSills'></td>
+              </tr>
+            </table>
+          </div>
+          <h3>Bedroom #2 </h3> 
+          <div id="bedroom_2">
+            <table>
+              <tr class="title_row"><td>&nbsp;</td><td>Number:</td><td>Unit (gal.):</td></tr>
+              <tr><td>Walls            </td>
+                <td><input type='text' class="number" size="15"></td>
+                <td><input type='text' class="calculate" size="15" id='walls'></td>
+              </tr>
+              <tr><td>Baseboards           </td>
+                <td><input type='text' class="number" size="15"></td>
+                <td><input type='text' class="calculate" size="15" id='baseBoardsonWalls'></td>
+              </tr>
+              <tr><td>Crown Moulding            </td>
+                <td><input type='text' class="number" size="15"></td>
+                <td><input type='text' class="calculate" size="15" id='crownMouldingsonWalls'></td>
+              </tr>
+              <tr><td>Window Frame &amp; Sills            </td>
+                <td><input type='text' class="number" size="15"></td>
+                <td><input type='text' class="calculate" size="15" id='windowFrameSills'></td>
+              </tr>
+            </table>
+          </div>
+          <h3>Bedroom #3 </h3> 
+          <div id="bedroom_3">
+            <table>
+              <tr class="title_row"><td>&nbsp;</td><td>Number:</td><td>Unit (gal.):</td></tr>
+              <tr><td>Walls            </td>
+                <td><input type='text' class="number" size="15"></td>
+                <td><input type='text' class="calculate" size="15" id='walls'></td>
+              </tr>
+              <tr><td>Baseboards           </td>              
+                <td><input type='text' class="number" size="15"></td>
+                <td><input type='text' class="calculate" size="15" id='baseBoardsonWalls'></td>
+              </tr>
+              <tr><td>Crown Moulding            </td>
+                <td><input type='text' class="number" size="15"></td>
+                <td><input type='text' class="calculate" size="15" id='crownMouldingsonWalls'></td>
+              </tr>
+              <tr><td>Window Frame &amp; Sills            </td>
+                <td><input type='text' class="number" size="15"></td>
+                <td><input type='text' class="calculate" size="15" id='windowFrameSills'></td>
+              </tr>
+            </table>
+          </div>
+          <h3>Bedroom #4 </h3> 
+          <div id="bedroom_4">
+            <table>
+              <tr class="title_row"><td>&nbsp;</td><td>Number:</td><td>Unit (gal.):</td></tr>
+              <tr><td>Walls            </td>
+                <td><input type='text' class="number" size="15"></td>
+                <td><input type='text' class="calculate" size="15" id='walls'></td>
+              </tr>
+              <tr><td>Baseboards           </td>
+                <td><input type='text' class="number" size="15"></td>
+                <td><input type='text' class="calculate" size="15" id='baseBoardsonWalls'></td>
+              </tr>
+              <tr><td>Crown Moulding            </td>
+                <td><input type='text' class="number" size="15"></td>
+                <td><input type='text' class="calculate" size="15" id='crownMouldingsonWalls'></td>
+              </tr>
+              <tr><td>Window Frame &amp; Sills            </td>
+                <td><input type='text' class="number" size="15"></td>
+                <td><input type='text' class="calculate" size="15" id='windowFrameSills'></td>
+              </tr>
+            </table>
+          </div>
+          <h3>Bathroom #1 </h3> 
+          <div id="bathroom_1">
+            <table>
+              <tr class="title_row"><td>&nbsp;</td><td>Number:</td><td>Unit (gal.):</td></tr>
+              <tr><td>Walls            </td>
+                <td><input type='text' class="number" size="15"></td>
+                <td><input type='text' class="calculate" size="15" id='walls'></td>
+              </tr>
+              <tr><td>Baseboards           </td>
+                <td><input type='text' class="number" size="15"></td>
+                <td><input type='text' class="calculate" size="15" id='baseBoardsonWalls'></td>
+              </tr>
+              <tr><td>Crown Moulding            </td>
+                <td><input type='text' class="number" size="15"></td>
+                <td><input type='text' class="calculate" size="15" id='crownMouldingsonWalls'></td>
+              </tr>
+              <tr><td>Window Frame &amp; Sills            </td>
+                <td><input type='text' class="number" size="15"></td>
+                <td><input type='text' class="calculate" size="15" id='windowFrameSills'></td>
+              </tr>
+            </table>
+          </div>
+          <h3>Bathroom #2 </h3> 
+          <div id="bathroom_2">
+            <table>
+              <tr class="title_row"><td>&nbsp;</td><td>Number:</td><td>Unit (gal.):</td></tr>
+              <tr><td>Walls            </td>
+                <td><input type='text' class="number" size="15"></td>
+                <td><input type='text' class="calculate" size="15" id='walls'></td>
+              </tr>
+              <tr><td>Baseboards           </td>
+                <td><input type='text' class="number" size="15"></td>
+                <td><input type='text' class="calculate" size="15" id='baseBoardsonWalls'></td>
+              </tr>
+              <tr><td>Crown Moulding            </td>
+                <td><input type='text' class="number" size="15"></td>
+                <td><input type='text' class="calculate" size="15" id='crownMouldingsonWalls'></td>
+              </tr>
+              <tr><td>Window Frame &amp; Sills            </td>
+                <td><input type='text' class="number" size="15"></td>
+                <td><input type='text' class="calculate" size="15" id='windowFrameSills'></td>
+              </tr>
+            </table>
+          </div>
+          <h3>Bathroom #3 </h3> 
+          <div id="bathroom_3">
+            <table>
+              <tr class="title_row"><td>&nbsp;</td><td>Number:</td><td>Unit (gal.):</td></tr>
+              <tr><td>Walls            </td>
+                <td><input type='text' class="number" size="15"></td>
+                <td><input type='text' class="calculate" size="15" id='walls'></td>
+              </tr>
+              <tr><td>Baseboards           </td>
+                <td><input type='text' class="number" size="15"></td>
+                <td><input type='text' class="calculate" size="15" id='baseBoardsonWalls'></td>
+              </tr>
+              <tr><td>Crown Moulding            </td>
+                <td><input type='text' class="number" size="15"></td>
+                <td><input type='text' class="calculate" size="15" id='crownMouldingsonWalls'></td>
+              </tr>
+              <tr><td>Window Frame &amp; Sills            </td>
+                <td><input type='text' class="number" size="15"></td>
+                <td><input type='text' class="calculate" size="15" id='windowFrameSills'></td>
+              </tr>
+            </table>
+          </div>
+          <h3>Bathroom #4 </h3> 
+          <div id="bathroom_4">
+            <table>
+              <tr class="title_row"><td>&nbsp;</td><td>Number:</td><td>Unit (gal.):</td></tr>
+              <tr><td>Walls            </td>
+                <td><input type='text' class="number" size="15"></td>
+                <td><input type='text' class="calculate" size="15" id='walls'></td>
+              </tr>
+              <tr><td>Baseboards           </td>
+                <td><input type='text' class="number" size="15"></td>
+                <td><input type='text' class="calculate" size="15" id='baseBoardsonWalls'></td>
+              </tr>
+              <tr><td>Crown Moulding            </td>
+                <td><input type='text' class="number" size="15"></td>
+                <td><input type='text' class="calculate" size="15" id='crownMouldingsonWalls'></td>
+              </tr>
+              <tr><td>Window Frame &amp; Sills            </td>
+                <td><input type='text' class="number" size="15"></td>
+                <td><input type='text' class="calculate" size="15" id='windowFrameSills'></td>
+              </tr>
+            </table>
+          </div>
+          <h3>Hallway #1 </h3> 
+          <div id="hallway_1">
+            <table>
+              <tr class="title_row"><td>&nbsp;</td><td>Number:</td><td>Unit (gal.):</td></tr>
+              <tr><td>Walls            </td>
+                <td><input type='text' class="number" size="15"></td>
+                <td><input type='text' class="calculate" size="15" id='walls'></td>
+              </tr>
+              <tr><td>Baseboards           </td>
+                <td><input type='text' class="number" size="15"></td>
+                <td><input type='text' class="calculate" size="15" id='baseBoardsonWalls'></td>
+              </tr>
+              <tr><td>Crown Moulding            </td>
+                <td><input type='text' class="number" size="15"></td>
+                <td><input type='text' class="calculate" size="15" id='crownMouldingsonWalls'></td>
+              </tr>
+              <tr><td>Window Frame &amp; Sills            </td>
+                <td><input type='text' class="number" size="15"></td>
+                <td><input type='text' class="calculate" size="15" id='windowFrameSills'></td>
+              </tr>
+            </table>
+          </div>
+          <h3>Hallway #2 </h3> 
+          <div id="hallway_2">
+            <table>
+              <tr class="title_row"><td>&nbsp;</td><td>Number:</td><td>Unit (gal.):</td></tr>
+              <tr><td>Walls            </td>
+                <td><input type='text' class="number" size="15"></td>
+                <td><input type='text' class="calculate" size="15" id='walls'></td>
+              </tr>
+              <tr><td>Baseboards           </td>
+                <td><input type='text' class="number" size="15"></td>
+                <td><input type='text' class="calculate" size="15" id='baseBoardsonWalls'></td>
+              </tr>
+              <tr><td>Crown Moulding            </td>
+                <td><input type='text' class="number" size="15"></td>
+                <td><input type='text' class="calculate" size="15" id='crownMouldingsonWalls'></td>
+              </tr>
+              <tr><td>Window Frame &amp; Sills            </td>
+                <td><input type='text' class="number" size="15"></td>
+                <td><input type='text' class="calculate" size="15" id='windowFrameSills'></td>
+              </tr>
+            </table>
+          </div>
+          <h3>Hallway #3 </h3> 
+          <div id="hallway_3">
+            <table>
+              <tr class="title_row"><td>&nbsp;</td><td>Number:</td><td>Unit (gal.):</td></tr>
+              <tr><td>Walls            </td>
+                <td><input type='text' class="number" size="15"></td>
+                <td><input type='text' class="calculate" size="15" id='walls'></td>
+              </tr>
+              <tr><td>Baseboards           </td>
+                <td><input type='text' class="number" size="15"></td>
+                <td><input type='text' class="calculate" size="15" id='baseBoardsonWalls'></td>
+              </tr>
+              <tr><td>Crown Moulding            </td>
+                <td><input type='text' class="number" size="15"></td>
+                <td><input type='text' class="calculate" size="15" id='crownMouldingsonWalls'></td>
+              </tr>
+              <tr><td>Window Frame &amp; Sills            </td>
+                <td><input type='text' class="number" size="15"></td>
+                <td><input type='text' class="calculate" size="15" id='windowFrameSills'></td>
+              </tr>
+            </table>
+          </div>
+          <h3>Library </h3> 
+          <div id="library">
+            <table>
+              <tr class="title_row"><td>&nbsp;</td><td>Number:</td><td>Unit (gal.):</td></tr>
+              <tr><td>Walls            </td>
+                <td><input type='text' class="number" size="15"></td>
+                <td><input type='text' class="calculate" size="15" id='walls'></td>
+              </tr>
+              <tr><td>Baseboards           </td>
+                <td><input type='text' class="number" size="15"></td>
+                <td><input type='text' class="calculate" size="15" id='baseBoardsonWalls'></td>
+              </tr>
+              <tr><td>Crown Moulding            </td>
+                <td><input type='text' class="number" size="15"></td>
+                <td><input type='text' class="calculate" size="15" id='crownMouldingsonWalls'></td>
+              </tr>
+              <tr><td>Window Frame &amp; Sills            </td>
+                <td><input type='text' class="number" size="15"></td>
+                <td><input type='text' class="calculate" size="15" id='windowFrameSills'></td>
+              </tr>
+            </table>
+          </div>
+          <h3>Sunroom </h3> 
+          <div id="sunroom">
+            <table>
+              <tr class="title_row"><td>&nbsp;</td><td>Number:</td><td>Unit (gal.):</td></tr>
+              <tr><td>Walls            </td>
+                <td><input type='text' class="number" size="15"></td>
+                <td><input type='text' class="calculate" size="15" id='walls'></td>
+              </tr>
+              <tr><td>Baseboards           </td>
+                <td><input type='text' class="number" size="15"></td>
+                <td><input type='text' class="calculate" size="15" id='baseBoardsonWalls'></td>
+              </tr>
+              <tr><td>Crown Moulding            </td>
+                <td><input type='text' class="number" size="15"></td>
+                <td><input type='text' class="calculate" size="15" id='crownMouldingsonWalls'></td>
+              </tr>
+              <tr><td>Window Frame &amp; Sills            </td>
+                <td><input type='text' class="number" size="15"></td>
+                <td><input type='text' class="calculate" size="15" id='windowFrameSills'></td>
+              </tr>
+            </table>
+          </div>
+          <h3>Family Room </h3> 
+          <div id="family_room">
+            <table>
+              <tr class="title_row"><td>&nbsp;</td><td>Number:</td><td>Unit (gal.):</td></tr>
+              <tr><td>Walls            </td>
+                <td><input type='text' class="number" size="15"></td>
+                <td><input type='text' class="calculate" size="15" id='wall_1'></td>
+              </tr>
+              <tr><td>Baseboards           </td>
+                <td><input type='text' class="number" size="15"></td>
+                <td><input type='text' class="calculate" size="15" id='wall_1'></td>
+              </tr>
+              <tr><td>Crown Moulding            </td>
+                <td><input type='text' class="number" size="15"></td>
+                <td><input type='text' class="calculate" size="15" id='wall_1'></td>
+              </tr>
+              <tr><td>Window Frame &amp; Sills            </td>
+                <td><input type='text' class="number" size="15"></td>
+                <td><input type='text' class="calculate" size="15" id='wall_1'></td>
+              </tr>
+            </table>
+          </div>
+        </div> 
+        <!-- end accordion -->
+      </div>
+      <!-- end right side -->
+  
+      <div id="bottom">
+        <h2>Total Paint Needed</h2>
+        <table id="total_gallons">
+          <thead>
+            <tr>
+              <td>Item</td><td>Category</td><td>Unit (gal.)</td>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+
+    </div>
+
+  <script>
+    console.log('paintcrazy-walls')
+  </script>
+
+    <!-- JavaScript ================================================== -->
+    <script type="text/javascript" src="/js/totalWallsforPainting.js"></script>
+
+  </body>
+</html>

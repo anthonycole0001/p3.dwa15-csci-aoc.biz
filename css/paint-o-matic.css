@@ -1,0 +1,280 @@
+/* 
+DWA15-CSCI
+
+*/
+
+@font-face {
+  font-family: "HelveticaNeueUltra";
+  src: url("/common/fonts/HelveticaNeueUltraLight_0.ttf");
+  src: local("?"),
+    url("/common/fonts/HelveticaNeueUltraLight_0.woff") format("woff"),
+}
+
+
+/* Some general resets */
+html, body, div, span, h1, h2, h3, h4, h5, h6, p, em, img, a
+ {
+    margin:0;
+    padding:0;
+    border:0;
+    outline:0;
+    font-size:100%;
+    vertical-align:baseline;
+}
+
+
+
+body {
+    line-height:1.25em;
+    height: 100%;
+    background:url('/images/paintswatch.jpg') no-repeat center center fixed;
+    background-size: cover;
+}
+
+
+a {
+    margin:0;
+    padding:0;
+    font-size:100%;
+    vertical-align:baseline;
+    background:transparent;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "HelveticaNeueUltra";
+    font-weight: 800;
+}
+
+h1 {
+    font-size:1.5em;
+    line-height: 1.75em;
+    color: #DF0018;
+}
+
+h2 {
+    font-size:1em;
+    color: #DF0018;
+    margin-top: .75em;
+}
+
+p {
+  font-family: "HelveticaNeueUltra";
+    font-weight: 400;
+    font-size: .85em;
+    color: #000000;
+}
+
+a {
+  font-family: "HelveticaNeueUltra";
+    font-weight: 800;
+    text-decoration: none;
+    color: #999999;
+}
+
+table{
+    width: 100%;
+}
+
+table td{
+    width: 25%;
+}
+
+input[class="item_paintNeeded_input"]{
+    margin-left: 5px;
+}
+
+
+
+#container {
+    display: block;
+    width: 900px;
+    margin: 75px auto;
+    padding: 0px;
+    min-height: 800px;
+}
+
+
+/*----------------------------------------------------------------------------------------
+    Top TitleName
+----------------------------------------------------------------------------------------*/
+ #top{
+    display:block;
+    clear:both;
+}
+
+#titlename{
+    background-color: #79c4d5;
+    margin-bottom: 15px;
+    font-family: "HelveticaNeueUltra";
+    font-size: 90px;
+    padding: 20px;
+    text-align: center;
+    color: #181818;
+    line-height: 115px;
+    height: 140px;
+    -webkit-box-shadow: 1px 1px 30px #000000;
+    -moz-box-shadow: 1px 1px 30px #000000;
+    box-shadow:  1px 1px 30px #000000;
+}
+
+
+
+/*----------------------------------------------------------------------------------------
+    left side
+----------------------------------------------------------------------------------------*/
+
+#left{
+    display: inline;
+    width:250px;
+    float: left;
+
+}
+
+#output{
+    display: block;
+    background-color: #ECEAE0;
+    margin-bottom: 15px;
+  font-family: "HelveticaNeueUltra";
+    font-size: 64px;
+    padding: 40px 0px;
+    text-align: center;
+    height: 100px;
+    -webkit-box-shadow: 1px 1px 30px #000000;
+    -moz-box-shadow: 1px 1px 30px #000000;
+    box-shadow:  1px 1px 30px #000000;
+}
+
+#liquidunit{
+    display: block;
+    background-color: #87898c;
+    padding: 0px;
+    margin-bottom: 15px;
+    text-align: center;
+    height: 75px;
+    -webkit-box-shadow: 1px 1px 30px #000000;
+    -moz-box-shadow: 1px 1px 30px #000000;
+    box-shadow:  1px 1px 30px #000000;
+}
+
+#summary{
+    display: block;
+    background-color: #79c4d5;
+    height: 715px;
+    margin-bottom: 15px;
+    -webkit-box-shadow: 1px 1px 30px #000000;
+    -moz-box-shadow: 1px 1px 30px #000000;
+    box-shadow:  1px 1px 30px #000000;
+  font-family: "HelveticaNeueUltra";
+    font-size: 24px;
+    color: #383838;
+}
+
+#total_walls_items{
+    display: inline;
+    float: left;
+
+}
+
+#summary p{
+    padding: 15px;
+  font-family: "HelveticaNeueUltra";
+    font-size: 24px;
+    color: #383838;
+}
+
+#summary table{
+  font-family: "HelveticaNeueUltra";
+    font-size: 14px;
+    padding: 5px;
+}
+
+#summary td{
+    border: 1px solid black;
+    padding: 5px;
+}
+
+.category_title{
+  font-family: "HelveticaNeueUltra";
+    width: 70%;
+}
+
+/*----------------------------------------------------------------------------------------
+    right side
+----------------------------------------------------------------------------------------*/
+
+
+#right{
+    display: inline;
+    width: 635px;
+    float: left;
+    margin-left: 15px;
+    margin-bottom: 15px;
+    color: #ffffff;
+    min-height: 610px;
+    -webkit-box-shadow: 1px 1px 30px #000000;
+    -moz-box-shadow: 1px 1px 30px #000000;
+    box-shadow:  1px 1px 30px #000000;
+}
+
+
+
+
+/*----------------------------------------------------------------------------------------
+    bottom
+----------------------------------------------------------------------------------------*/
+
+#bottom{
+    display:block;
+    clear:both;
+  font-family: "HelveticaNeueUltra";
+    font-size: 18px;
+    padding: 20px;
+    background-color: #79c4d5;
+    text-align: center;
+    color: #383838;
+    min-height: 200px;
+}
+
+#bottom h2{
+    display: inline;
+  font-family: "HelveticaNeueUltra";
+    color: #383838;
+    font-size: 28px;
+}
+
+#total_walls_items{
+    clear: both;
+  font-family: "HelveticaNeueUltra";
+    font-size: 18px;
+    padding: 10px;
+    border: 3px solid white;
+    margin-top: 30px;
+}
+
+#total_walls_items thead{
+  font-family: "HelveticaNeueUltra";
+    font-size: 18px;
+    text-align: center;
+}
+
+#total_walls_items_filter{
+    display: inline;
+    float:right;
+    margin-bottom: 10px;
+}
+
+#total_walls_items td{
+    padding: 5px;
+    margin: 2px;
+}
+
+#total_walls_items tbody tr.even td {
+    background: #85ADD6;
+}
+
+#total_walls_items tbody tr.odd td {
+    background: #bcd9e1;
+}
+
+
+
